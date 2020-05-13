@@ -71,6 +71,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yC4-dN-8qK">
                                         <rect key="frame" x="0.0" y="168" width="374" height="30"/>
                                         <state key="normal" title="Log Time"/>
+                                        <connections>
+                                            <action selector="logTimeButtonPressed:" destination="QVk-7N-MGS" eventType="touchUpInside" id="Nhl-YA-dJ8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -87,6 +90,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iFM-0g-Kt5"/>
                     </view>
+                    <connections>
+                        <outlet property="TimeHoursTextField" destination="hJY-xA-vK5" id="I2v-CX-bmh"/>
+                        <outlet property="clientNameTextField" destination="sqz-sU-Pxu" id="ba7-Ra-HAS"/>
+                        <outlet property="rateTextField" destination="1s7-qi-GbT" id="DFQ-hJ-BGO"/>
+                        <outlet property="summaryTextField" destination="Zaq-vp-K0H" id="hem-e8-QXy"/>
+                        <outlet property="tableView" destination="NGG-z0-Z9V" id="djO-Fd-HfF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kod-47-YCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
