@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class FGTTimedTaskController;
+
 NS_ASSUME_NONNULL_BEGIN
 
 //Adopt <UITableViewDataSource> protocol
-@interface FGTTimeTrackerViewController : UIViewController <UITableViewDataSource>
+@interface FGTTimeTrackerViewController : UIViewController 
+
+@property (nonatomic) FGTTimedTaskController* timedTaskController;
 
 @end
 

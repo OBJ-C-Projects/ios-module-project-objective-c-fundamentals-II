@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FGTTimedTaskController : NSObject
 
 //Properties
-@property (readonly, nonatomic) NSMutableArray<FGTTimedTask *> *timeTasks;
+@property (readonly, nonatomic) NSArray<FGTTimedTask *> *timeTasks;
 
 //Methods
 - (void)createTimedTaskWith:(NSString *)client summary:(NSString *)summary rate:(double)rate hours:(double)hours;

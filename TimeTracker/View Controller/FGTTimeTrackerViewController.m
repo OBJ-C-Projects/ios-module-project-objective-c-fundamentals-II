@@ -10,9 +10,7 @@
 #import "FGTTimedTask.h"
 #import "FGTTimedTaskController.h"
 
-@interface FGTTimeTrackerViewController ()
-//Properties
-@property FGTTimedTaskController* timedTaskController;
+@interface FGTTimeTrackerViewController () <UITableViewDataSource, UITableViewDelegate>
 
 //Add  Outlets
 @property (strong, nonatomic) IBOutlet UITextField *clientNameTextField;
@@ -23,20 +21,26 @@
 
 @end
 
-
-
 @implementation FGTTimeTrackerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Set as delegate
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     
-    //instance of the model controller
-    _timedTaskController = [[FGTTimedTaskController alloc] init];
+
 }
 
-//Add Actions
+- (FGTTimedTaskController *)timedTaskController {
+    if(!_timedTaskController){
+    //instance of the model controller
+    _timedTaskController = [[FGTTimedTaskController alloc] init];
+    }
+    return _timedTaskController;
+}
+
+// Mark: - Actions
 - (IBAction)logTimeButtonPressed:(UIButton *)sender {
     
     NSString *client = self.clientNameTextField.text;
@@ -46,9 +50,19 @@
     
     //access the createTimedTaskWith method in timedTaskController
     [self.timedTaskController createTimedTaskWith:client summary:summary rate:rate hours:hours];
+    
     //Reload table
     [self.tableView reloadData];
 
+    [self clearFilds];
+    
+}
+
+- (void)clearFilds{
+    self.clientNameTextField.text = @"";
+    self.summaryTextField.text = @"";
+    self.rateTextField.text = @"";
+    self.timeHoursTextField.text = @"";
 }
 
 // Mark: -Data source delegate Methods
@@ -71,7 +85,5 @@
     
     return cell;
 }
-
-
 
 @end
