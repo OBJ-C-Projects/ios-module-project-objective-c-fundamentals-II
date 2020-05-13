@@ -91,11 +91,11 @@
                         <viewLayoutGuide key="safeArea" id="iFM-0g-Kt5"/>
                     </view>
                     <connections>
-                        <outlet property="TimeHoursTextField" destination="hJY-xA-vK5" id="I2v-CX-bmh"/>
                         <outlet property="clientNameTextField" destination="sqz-sU-Pxu" id="ba7-Ra-HAS"/>
                         <outlet property="rateTextField" destination="1s7-qi-GbT" id="DFQ-hJ-BGO"/>
                         <outlet property="summaryTextField" destination="Zaq-vp-K0H" id="hem-e8-QXy"/>
                         <outlet property="tableView" destination="NGG-z0-Z9V" id="djO-Fd-HfF"/>
+                        <outlet property="timeHoursTextField" destination="hJY-xA-vK5" id="I2v-CX-bmh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kod-47-YCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

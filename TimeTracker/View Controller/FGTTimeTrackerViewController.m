@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *clientNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *summaryTextField;
 @property (strong, nonatomic) IBOutlet UITextField *rateTextField;
-@property (strong, nonatomic) IBOutlet UITextField *TimeHoursTextField;
+@property (strong, nonatomic) IBOutlet UITextField *timeHoursTextField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -26,7 +26,6 @@
 
 
 @implementation FGTTimeTrackerViewController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,15 +36,22 @@
     _timedTaskController = [[FGTTimedTaskController alloc] init];
 }
 
-
-
 //Add Actions
 - (IBAction)logTimeButtonPressed:(UIButton *)sender {
     
+    NSString *client = self.clientNameTextField.text;
+    NSString *summary = self.summaryTextField.text;
+    double rate = [self.rateTextField.text doubleValue];
+    double hours = [self.timeHoursTextField.text doubleValue];
     
+    //access the createTimedTaskWith method in timedTaskController
+    [self.timedTaskController createTimedTaskWith:client summary:summary rate:rate hours:hours];
+    //Reload table
+    [self.tableView reloadData];
+
 }
 
-//Data source delegate Methods
+// Mark: -Data source delegate Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.timedTaskController.timeTasks.count;
@@ -61,7 +67,7 @@
     
     //3.Pass data to labels
     cell.textLabel.text = task.client;
-    cell.detailTextLabel.text = task.summary;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", task.total];
     
     return cell;
 }
