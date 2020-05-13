@@ -10,11 +10,13 @@
 
 @implementation FGTTimedTask
 
+//intance of total to then create a getter
+@synthesize total = _total;
 
 - (instancetype)initWithClient:(NSString *)client
                        summary:(NSString *)summary
-                          rate:(NSNumber *)rate
-                         hours:(NSNumber *)hours{
+                          rate:(double)rate
+                         hours:(double)hours{
     self = [super init];
     
     if(self){
@@ -27,6 +29,11 @@
     return self;
 }
 
+//Create getter for read only total property
+-(double)total {
+    double totalEquation = _rate * _hours;
+    return totalEquation;
+};
 
 
 @end
